@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State var names: [String] = []
     var body: some View {
-        VStack {
+        VStack(spacing: 60) {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
