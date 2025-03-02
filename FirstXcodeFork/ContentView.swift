@@ -9,26 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var names: [String] = []
+    @State var currentColor = Color.white
+    @State var changeColor: [Color] = [
+        Color.orange,
+        Color.red,
+        Color.blue,
+        Color.green
+    ]
     var body: some View {
-        VStack(spacing: 60) {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
+        
+        ZStack {
+            currentColor.edgesIgnoringSafeArea(.all)
             
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
+            VStack(spacing: 60) {
+                    
+                Text("You changed the background color to \(currentColor.description)")
+                
+                Button("Change Color") {
+                    
+                    currentColor = changeColor.randomElement()!
+                    
+                    
+                }.buttonStyle(BorderedButtonStyle())
+                
+            }
             
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
         }
+       
+        
     }
+    
 }
 
 #Preview {
